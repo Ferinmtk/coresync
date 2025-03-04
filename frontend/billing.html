@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreSync - Billing</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script defer src="scripts/billing.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Choose Your Subscription Plan</h1>
+        <div id="current-plan">Loading current plan...</div>
+
+        <div class="plans">
+            <div class="plan">
+                <h2>Free</h2>
+                <p>$0 / month</p>
+                <button onclick="subscribe('Free')">Select</button>
+            </div>
+
+            <div class="plan">
+                <h2>Pro</h2>
+                <p>$29 / month</p>
+                <button onclick="subscribe('Pro')">Select</button>
+            </div>
+
+            <div class="plan">
+                <h2>Enterprise</h2>
+                <p>$99 / month</p>
+                <button onclick="subscribe('Enterprise')">Select</button>
+            </div>
+        </div>
+
+        <button id="cancel-btn" style="display: none;" onclick="cancelSubscription()">Cancel Subscription</button>
+
+    </div>
+
+</body>
+</html>
