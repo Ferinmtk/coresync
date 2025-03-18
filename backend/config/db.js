@@ -1,15 +1,24 @@
-const { Pool } = require("pg");
-require("dotenv").config();
+const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
-// PostgreSQL Connection
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false
+
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+    },
 });
 
-// Test connection
-pool.connect()
-  .then(() => console.log("✅ PostgreSQL Connected"))
-  .catch(err => console.error("❌ Database Connection Error:", err));
+sequelize.authenticate()
+    .then(() => console.log("✅ PostgreSQL Connected via Sequelize"))
+    .catch(err => console.error("❌ Database Connection Error via Sequelize:", err));
 
-module.exports = pool;
+   
+
+module.exports = sequelize;
+console.log("✅ DB Config Loaded: Path Resolved");
+
