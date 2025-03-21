@@ -20,7 +20,7 @@ const Order = sequelize.define("Order", {
     },
     product: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull:  true,
         comment: "Name or identifier of the product",
     },
     amount: {

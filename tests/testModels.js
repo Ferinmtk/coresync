@@ -12,8 +12,8 @@ const { User, Tenant, Order, Subscription } = require("../backend/models"); // I
 
         console.log("🟡 User Data:", {
             tenant_id: tenant.id,
-            name: "John Doe",
-            email: "johndoe@example.com",
+            name: "James Kimani",
+            email: "kimanie@gmail.com",
             password: "securepassword",
             role: "Admin",
         });
@@ -21,8 +21,8 @@ const { User, Tenant, Order, Subscription } = require("../backend/models"); // I
         // Create a user under this tenant
         const user = await User.create({
             tenant_id: tenant.id,
-            name: "John Doe",
-            email: "johndoe" + Date.now() + "@gmail.com", // Generate a unique email
+            name: "James",
+            email: "james" + Date.now() + "@gmail.com", // Generate a unique email
             password: "securepassword", // Use a hashed password in production!
             role: "Admin"
         });

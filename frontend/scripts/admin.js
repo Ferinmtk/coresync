@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const tenantTable = document.querySelector("#tenantTable tbody");
+    const loader = document.querySelector("#loader"); // Loader element
+    loader.style.display = "block"; // Show loader while fetching data
 
     // Fetch all tenants and display them in the table
     try {
@@ -16,18 +18,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Populate the table with tenant data
         tenants.forEach(tenant => {
             const row = document.createElement("tr");
+            row.setAttribute("data-id", tenant.id); // Add data-id for dynamic row deletion
             row.innerHTML = `
                 <td>${tenant.name}</td>
                 <td>${tenant.schema_name}</td>
                 <td>
-                    <button onclick="deleteTenant('${tenant.id}')">🗑 Delete</button>
+                    <button onclick="deleteTenant('${tenant.id}')" aria-label="Delete Tenant">🗑 Delete</button>
                 </td>
             `;
             tenantTable.appendChild(row);
         });
     } catch (error) {
         console.error(error);
-        alert("Error fetching tenants: " + error.message);
+        showToast("Error fetching tenants: " + error.message, "error");
+    } finally {
+        loader.style.display = "none"; // Hide loader after data is fetched
     }
 });
 
@@ -47,11 +52,20 @@ async function deleteTenant(id) {
             throw new Error("Failed to delete tenant.");
         }
 
-        // Reload the page to refresh the tenant list
-        alert("Tenant deleted successfully.");
-        location.reload();
+        // Dynamically remove the row from the table without reloading
+        document.querySelector(`tr[data-id="${id}"]`).remove();
+        showToast("Tenant deleted successfully.", "success");
     } catch (error) {
         console.error(error);
-        alert("Error deleting tenant: " + error.message);
+        showToast("Error deleting tenant: " + error.message, "error");
     }
+}
+
+// Utility function to show toast notifications
+function showToast(message, type) {
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`; // Type: 'success' or 'error'
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000); // Auto-remove after 3 seconds
 }
