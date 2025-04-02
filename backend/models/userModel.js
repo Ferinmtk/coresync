@@ -30,7 +30,7 @@ const User = sequelize.define('User', {
         },
     },
     role: {
-        type: DataTypes.ENUM("Super Admin", "Admin", "Manager", "Employee"),
+        type: DataTypes.ENUM("SuperAdmin", "Admin", "Manager", "Employee"),
         allowNull: false,
         defaultValue: "Employee",
     },
@@ -46,7 +46,7 @@ User.findByEmail = async function(email) {
     return await this.findOne({ where: { email } });
 };
 
-// Add a custom method for checking permissions
+//  custom method for checking permissions
 User.prototype.hasRole = function(role) {
     return this.role === role;
 };

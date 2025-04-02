@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreSync Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+    <div class="sidebar"> <!-- Sidebar Navigation --> </div>
+    <div class="content">
+        <h1>Welcome to CoreSync</h1>
+        <p>Total Orders: <span id="totalOrders">0</span></p>
+        <p>Total Revenue: $<span id="totalRevenue">0.00</span></p>
+        <canvas id="ordersChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+</body>
+</html>

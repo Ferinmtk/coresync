@@ -9,7 +9,15 @@
 <body>
     <h1>Admin Dashboard</h1>
     
+    
     <button id="createTenantBtn">+ Create New Tenant</button>
+
+    <form id="createTenantForm">
+        <input type="text" id="tenantName" placeholder="Tenant Name" required>
+        <input type="text" id="tenantSchema" placeholder="Schema Name">
+        <button type="submit">Create Tenant</button>
+    </form>
+    
     
     <table id="tenantTable">
         <thead>

@@ -5,8 +5,8 @@ const adminController = require("../controllers/adminController");
 
 const router = express.Router();
 
-router.get("/tenants", authMiddleware, rbacMiddleware("superadmin"), adminController.getAllTenants);
-router.post("/tenants", authMiddleware, rbacMiddleware("superadmin"), adminController.createTenant);
-router.delete("/tenants/:id", authMiddleware, rbacMiddleware("superadmin"), adminController.deleteTenant);
+router.get("/tenants", authMiddleware, rbacMiddleware("SuperAdmin"), adminController.getAllTenants);
+router.post("/tenants", authMiddleware, rbacMiddleware("SuperAdmin"), adminController.createTenant);
+router.delete("/tenants/:id", authMiddleware, rbacMiddleware("SuperAdmin"), adminController.deleteTenant);
 
 module.exports = router;

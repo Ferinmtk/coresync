@@ -8,8 +8,8 @@ const Tenant = sequelize.define('Tenant', {
         allowNull: false,
     },
 }, {
-    freezeTableName: true, // Prevent Sequelize from pluralizing the table name
-    tableName: 'tenants', // Explicitly use the lowercase table name
+    freezeTableName: true, 
+    tableName: 'tenants',
 });
 
 module.exports = Tenant;

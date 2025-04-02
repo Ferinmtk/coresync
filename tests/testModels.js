@@ -4,13 +4,13 @@ const { User, Tenant, Order, Subscription } = require("../backend/models"); // I
 
 (async () => {
     try {
-        console.log("✅ DB Config Loaded: Path Resolved");
+        console.log(" DB Config Loaded: Path Resolved");
 
         // Create a new tenant
-        const tenant = await Tenant.create({ name: "Test Company" });
-        console.log("✅ Tenant Created:", tenant.toJSON());
+        const tenant = await Tenant.create({ name: "COressy Company" });
+        console.log(" Tenant Created:", tenant.toJSON());
 
-        console.log("🟡 User Data:", {
+        console.log(" User Data:", {
             tenant_id: tenant.id,
             name: "James Kimani",
             email: "kimanie@gmail.com",
@@ -22,11 +22,11 @@ const { User, Tenant, Order, Subscription } = require("../backend/models"); // I
         const user = await User.create({
             tenant_id: tenant.id,
             name: "James",
-            email: "james" + Date.now() + "@gmail.com", // Generate a unique email
+            email: "james" + Date.now() + "@gmail.com", // Generates a unique email
             password: "securepassword", // Use a hashed password in production!
             role: "Admin"
         });
-        console.log("✅ User Created:", user.toJSON());
+        console.log(" User Created:", user.toJSON());
 
         // Create an order
         const order = await Order.create({
@@ -36,7 +36,7 @@ const { User, Tenant, Order, Subscription } = require("../backend/models"); // I
             amount: 99.99,
             status: "pending"
         });
-        console.log("✅ Order Created:", order.toJSON());
+        console.log(" Order Created:", order.toJSON());
 
         // Create a subscription
         const subscription = await Subscription.create({
@@ -45,18 +45,18 @@ const { User, Tenant, Order, Subscription } = require("../backend/models"); // I
             status: "Active",
             end_date: new Date("2025-12-31")
         });
-        console.log("✅ Subscription Created:", subscription.toJSON());
+        console.log(" Subscription Created:", subscription.toJSON());
 
         // All tests passed!
-        console.log("\n🎉 All tests ran successfully! ✅");
+        console.log("\n All tests ran successfully! ");
     } catch (error) {
-        console.error("\n❌ Error during tests:", error.message || error);
+        console.error("\n Error during tests:", error.message || error);
     } finally {
         try {
             await sequelize.close(); // Close the database connection
-            console.log("✅ Sequelize connection closed.");
+            console.log(" Sequelize connection closed.");
         } catch (closeErr) {
-            console.error("❌ Error closing Sequelize connection:", closeErr);
+            console.error(" Error closing Sequelize connection:", closeErr);
         }
     }
 })();

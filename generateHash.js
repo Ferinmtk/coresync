@@ -6,7 +6,7 @@ async function generateHashedPassword(password) {
     console.log('Hashed password:', hashedPassword);
 }
 
-// Example usage
+// usage
 generateHashedPassword('securepassword');
 
 
@@ -16,7 +16,7 @@ async function generateHashedPassword(password) {
     console.log('Hashed password:', hashedPassword);
 }
 
-// Example usage
+//  usage
 generateHashedPassword('securepassword');
 
 
@@ -27,6 +27,6 @@ async function generateHashedPassword(password) {
     console.log('Hashed password:', hashedPassword);
 }
 
-// Example usage
+//  usage
 generateHashedPassword('securepassword');
 

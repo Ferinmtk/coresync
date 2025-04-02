@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing & Subscription</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="sidebar"> <!-- Sidebar Navigation --> </div>
+    
+    <div class="content">
+        <h1>Subscription Plans</h1>
+        <div class="plans">
+            <div class="plan">
+                <h2>Basic Plan</h2>
+                <p>$10 / month</p>
+                <button class="subscribe-btn" data-plan="basic">Subscribe</button>
+            </div>
+            <div class="plan">
+                <h2>Pro Plan</h2>
+                <p>$25 / month</p>
+                <button class="subscribe-btn" data-plan="pro">Subscribe</button>
+            </div>
+            <div class="plan">
+                <h2>Enterprise</h2>
+                <p>Custom Pricing</p>
+                <button class="contact-btn">Contact Us</button>
+            </div>
+        </div>
+        <h2>Your Subscription</h2>
+        <p>Current Plan: <span id="currentPlan">Loading...</span></p>
+        <button id="cancelSubscription">Cancel Subscription</button>
+    </div>
+
+    <script src="../scripts/billing.js"></script>
+</body>
+</html>
