@@ -1,5 +1,5 @@
 router.get("/users", authMiddleware, rbacMiddleware(["admin", "super_admin"]), async (req, res) => {
-    res.json({ message: "List of users." });
+    res.json({ message: "List users." });
 });
 
 
