@@ -1,0 +1,76 @@
+/* Header styles */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers both h1 and nav */
+    padding: 15px;
+    background-color: #1e4976;
+    color: white;
+    position: relative; /* Allows positioning of hamburger */
+}
+
+/* Navigation menu (default: visible on large screens) */
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Hamburger Menu (Hidden by default on large screens) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.hamburger span {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+}
+
+/* Responsive Design: Hide nav on small screens & show hamburger */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger on small screens */
+    }
+
+    nav {
+        display: none; /* Hide nav by default */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background: #1e4976;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    nav.active {
+        display: flex; /* Show menu when active */
+    }
+}

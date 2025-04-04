@@ -5,12 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - CoreSync</title>
     <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/sidebar.css">
+    <script src="../../scripts/admin.js"></script>
+    <script src="../../scripts/utils.js"></script>
 </head>
 <body>
+    <header>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu" class="nav">
+            <ul>
+                <li><a href="/admin.html">Dashboard</a></li>
+                <li><a href="/analytics.html">Analytics</a></li>
+                <li><a href="/billing.html">Billing</a></li>
+                <li><a href="/settings.html">Settings</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        
+
+
+    </header>
     <h1>Admin Dashboard</h1>
     
     
-    <button id="createTenantBtn">+ Create New Tenant</button>
+
 
     <form id="createTenantForm">
         <input type="text" id="tenantName" placeholder="Tenant Name" required>
@@ -30,6 +53,5 @@
         <tbody></tbody>
     </table>
 
-    <script src="../../scripts/admin.js"></script>
 </body>
 </html>
